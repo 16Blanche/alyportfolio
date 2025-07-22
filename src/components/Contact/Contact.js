@@ -30,10 +30,10 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_ao799is",         // replace with your service ID
-        "template_0x6hrzp",        // replace with your template ID
+        "service_ao799is",  
+        "template_0x6hrzp", 
         formData,
-        "bHXJNbdIh_1NPHeoK"        // replace with your public key
+        "bHXJNbdIh_1NPHeoK"
       )
       .then(
         () => {
@@ -106,7 +106,7 @@ return (
             <div className="relative inline-block">
               <button
                 onClick={handleCopyEmail}
-                className="text-white hover:text-yellow-300 transition"
+                className="text-white hover:text-[#FAEB92] transition"
               >
                 <FaGoogle />
               </button>
@@ -117,10 +117,10 @@ return (
               )}
             </div>
             <a href="https://github.com/16Blanche" target="_blank" rel="noopener noreferrer">
-              <FaGithub className="hover:text-yellow-300 transition" />
+              <FaGithub className="hover:text-[#FAEB92] transition" />
             </a>
             <a href="https://www.linkedin.com/in/alyssaestipona" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin className="hover:text-yellow-300 transition" />
+              <FaLinkedin className="hover:text-[#FAEB92] transition" />
             </a>
           </div>
 
@@ -137,7 +137,7 @@ return (
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-2 rounded bg-white/10 text-white placeholder-white/50 focus:outline-none focus:border-yellow-300 border border-white/20"
+                className="w-full px-4 py-2 rounded bg-white/10 backdrop-blur-md text-white placeholder-white/50 focus:outline-none focus:border-[#FAEB92] border border-white/20"
                 required
               />
             </div>
@@ -150,7 +150,7 @@ return (
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 rounded bg-white/10 text-white placeholder-white/50 focus:outline-none focus:border-yellow-300 border border-white/20"
+                className="w-full px-4 py-2 rounded bg-white/10 backdrop-blur-md text-white placeholder-white/50 focus:outline-none focus:border-[#FAEB92] border border-white/20"
                 required
               />
             </div>
@@ -163,7 +163,7 @@ return (
                 rows="6"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-2 rounded bg-white/10 text-white placeholder-white/50 focus:outline-none focus:border-yellow-300 border border-white/20 resize-none"
+                className="w-full px-4 py-2 rounded bg-white/10 backdrop-blur-mdtext-white placeholder-white/50 focus:outline-none focus:border-[#FAEB92] border border-white/20 resize-none"
                 required
               ></textarea>
             </div>
@@ -172,19 +172,19 @@ return (
               type="submit"
               disabled={isLoading}
               style={{
-                backgroundColor: isLoading ? "#FAEB92" : "#FAEB92",
+                backgroundColor: "rgba(255, 255, 255, 0.85)",
               }}
               onMouseEnter={(e) => {
-                if (!isLoading) e.currentTarget.style.backgroundColor = "#F5D847";
-              }}
-              onMouseLeave={(e) => {
                 if (!isLoading) e.currentTarget.style.backgroundColor = "#FAEB92";
               }}
+              onMouseLeave={(e) => {
+                if (!isLoading) e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
+              }}
               onMouseDown={(e) => {
-                if (!isLoading) e.currentTarget.style.backgroundColor = "#E6C300";
+                if (!isLoading) e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
               }}
               onMouseUp={(e) => {
-                if (!isLoading) e.currentTarget.style.backgroundColor = "#F5D847";
+                if (!isLoading) e.currentTarget.style.backgroundColor = "#FAEB92";
               }}
               className={`w-full flex items-center justify-center gap-2 text-black font-semibold py-2 px-4 rounded transition duration-300 ${
                 isLoading ? "opacity-70 cursor-not-allowed" : ""
@@ -218,20 +218,21 @@ return (
                 "Send Email"
               )}
             </button>
+
           </form>
         </div>
 
         {/* Success Modal */}
         {isSuccessModalOpen && (
           <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
-            <div className="bg-white rounded-xl shadow-2xl p-6 text-center max-w-md w-full">
-              <h2 className="text-xl font-bold text-gray-800 mb-2">Email Sent!</h2>
-              <p className="text-gray-600 mb-4">
+            <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl shadow-2xl p-6 text-center max-w-md w-full">
+              <h2 className="text-2xl font-bold text-white mb-2">Email Sent!</h2>
+              <p className="text-white/70 mb-4 text-md text-center">
                 Your message has been sent successfully. I'll get back to you soon.
               </p>
               <button
                 onClick={() => setIsSuccessModalOpen(false)}
-                className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition"
+                className="bg-white text-black px-4 py-2 rounded hover:bg-[#FAEB92] transition"
               >
                 Close
               </button>
