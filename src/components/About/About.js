@@ -169,7 +169,7 @@ const [activeSection, setActiveSection] = useState("INTRODUCTION");
                         Full-Stack Web Developer
                       </p>
                       <p className="text-md text-white/70 text-justify">
-                        I specialize in developing responsive, user-friendly web applications using the MERN stack, with a strong focus on both functionality and user experience. With a background in full-stack development and UI/UX design, I build scalable backend systems and craft intuitive, visually engaging interfaces guided by design thinking principles.
+                        I specialize in developing responsive, user-friendly web applications using the MERN stack, with a strong focus on both functionality and user experience. I build scalable backends and design intuitive, visually engaging interfaces guided by design thinking. While the MERN stack is my main focus, I’m also comfortable working with other technologies as needed.
                       </p>
                     </div>
                   </div>
