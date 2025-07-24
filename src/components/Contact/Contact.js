@@ -4,6 +4,8 @@ import Navbar from "../Navbar/Navbar";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { FaGoogle, FaGithub, FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
+
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -63,7 +65,7 @@ return (
         <Particles
           id="tsparticles"
           init={particlesInit}
-          className="absolute inset-0 z-0"
+            className="absolute inset-0 z-0 pointer-events-none"
           options={{
             background: { color: "#000000" },
             particles: {
@@ -90,13 +92,19 @@ return (
         />
 
         {/* Navbar */}
-        <div className="relative z-10">
+        <div className="relative z-50">
           <Navbar />
         </div>
 
         {/* Contact Section */}
-        <div className="relative z-10 flex flex-col items-center text-center px-4 py-10 sm:py-16">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 mt-6">CONTACT</h1>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative z-10 flex flex-col items-center text-center px-4 py-10 sm:py-16"
+        >
+
+          <h1 className="text-5xl sm:text-5xl font-bold text-white mb-6 mt-6">CONTACT</h1>
           <p className="text-white/70 mb-6 text-sm sm:text-base max-w-md">
             Feel free to reach out via this form or any of my social links below.
           </p>
@@ -220,11 +228,11 @@ return (
             </button>
 
           </form>
-        </div>
+        </motion.div>
 
         {/* Success Modal */}
         {isSuccessModalOpen && (
-          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
             <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl shadow-2xl p-6 text-center max-w-md w-full">
               <h2 className="text-2xl font-bold text-white mb-2">Email Sent!</h2>
               <p className="text-white/70 mb-4 text-md text-center">

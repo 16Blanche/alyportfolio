@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { motion } from "framer-motion";
 
 const About = () => {
   const [isScrolling, setIsScrolling] = useState(false);
@@ -92,233 +93,290 @@ const [activeSection, setActiveSection] = useState("INTRODUCTION");
       {/* Foreground content */}
       <div className="relative z-10">
         <Navbar />
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative w-screen h-screen overflow-hidden"
+        >
+          {/* About Content */}
+          <div className="flex w-screen h-screen justify-center">
+          <div className="flex flex-col md:flex-row w-[90%] sm:w-4/5 md:w-2/3 h-[90vh]">
 
-        {/* About Content */}
-        <div className="flex w-screen h-screen justify-center">
-          <div className="flex flex-col md:flex-row w-2/3 h-[90vh]">
-            {/* Left side - Navigation */}
-            <div className="w-full md:w-1/3 mb-6 md:mb-0 hidden md:block">
-              <h2 className="text-5xl font-bold text-white mb-6 mt-6">ABOUT ME</h2>
-              <ul className="space-y-4 text-white/80">
-              {[
-                { label: "INTRODUCTION", ref: introRef },
-                { label: "SKILLS", ref: skillsRef },
-                { label: "EXPERIENCE", ref: experienceRef },
-                { label: "EDUCATION", ref: educationRef },
-              ].map((item, i) => (
-                <li
-                  key={i}
-                  className="cursor-pointer flex items-center gap-2 hover:text-white group"
-                  onClick={() => scrollToSection(item.ref)}
-                >
-                  <span
-                    className={`h-[2px] bg-white transition-all duration-300 ${
-                      activeSection === item.label ? "w-10" : "w-4 group-hover:w-6"
-                    }`}
-                  ></span>
-                  <span
-                    className={`transition-all ${
-                      activeSection === item.label ? "text-white font-semibold" : ""
-                    }`}
+              {/* Left side - Navigation */}
+              <div className="w-full md:w-1/3 mb-6 md:mb-0 hidden md:block">
+                <h2 className="text-5xl font-bold text-white mb-6 mt-6">ABOUT ME</h2>
+                <ul className="space-y-4 text-white/80">
+                {[
+                  { label: "INTRODUCTION", ref: introRef },
+                  { label: "SKILLS", ref: skillsRef },
+                  { label: "EXPERIENCE", ref: experienceRef },
+                  { label: "EDUCATION", ref: educationRef },
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="cursor-pointer flex items-center gap-2 hover:text-white group"
+                    onClick={() => scrollToSection(item.ref)}
                   >
-                    {item.label}
-                  </span>
-                </li>
-              ))}
-              </ul>
-            </div>
-
-            {/* Right side - Scrollable content */}
-            <div
-              ref={scrollRef}
-              className={`w-full md:w-2/3 h-full overflow-y-auto space-y-20 pr-2 custom-scrollbar ${
-                isScrolling ? "scrolling" : ""
-              }`}
-            >
-              {/* Introduction Section */}
-              <section ref={introRef}>
-                <h3 className="text-3xl font-bold text-white mb-4 mt-6">
-                  INTRODUCTION
-                </h3>
-
-                <div className="flex flex-col sm:flex-row gap-6">
-                  {/* Image - centered on mobile using mx-auto */}
-                  <img
-                    src="/Images/alyssa2.jpg"
-                    alt="Alyssa"
-                    className="w-44 h-44 sm:w-60 sm:h-60 rounded-xl object-cover border-2 border-white/20 shadow-xl mx-auto sm:mx-0"
-                  />
-
-                  {/* Info */}
-                  <div className="space-y-2 text-white">
-                    <h4 className="text-xl font-semibold">
-                      ALYSSA BIANCA A. ESTIPONA
-                    </h4>
-                    <p className="text-lg text-[#FAEB92] font-semibold">
-                      Full-Stack Web Developer
-                    </p>
-                    <p className="text-md text-white/70 text-justify">
-                      I specialize in developing responsive, user-friendly web applications using the MERN stack, with a strong focus on both functionality and user experience. With a background in full-stack development and UI/UX design, I build scalable backend systems and craft intuitive, visually engaging interfaces guided by design thinking principles.
-                    </p>
-                  </div>
-                </div>
-              </section>
-
-
-              {/* Skills Section */}
-              <section ref={skillsRef}>
-                <h3 className="text-3xl font-bold text-white mb-6">SKILLS</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                  {[
-                    { name: "React", icon: "/Images/react.png" },
-                    { name: "Node.js", icon: "/Images/node.png" },
-                    { name: "Express", icon: "/Images/express.png" },
-                    { name: "Laravel", icon: "/Images/laravel.png" },
-                    { name: "Python", icon: "/Images/python.png" },
-                    { name: "Javascript", icon: "/Images/javascript.png" },
-                    { name: "PHP", icon: "/Images/php.png" },
-                    { name: "MySQL", icon: "/Images/mysql.png" },
-                    { name: "MongoDB", icon: "/Images/mongodb.png" },
-                    { name: "Tailwind CSS", icon: "/Images/tailwind.png" },
-                    { name: "Bootstrap", icon: "/Images/bootstrap.png" },
-                    { name: "React Bootstrap", icon: "/Images/reactbootstrap.png" },
-                    { name: "Figma", icon: "/Images/figma.png" },
-                    { name: "Canva", icon: "/Images/canva.png" },
-                    { name: "Git", icon: "/Images/git.png" },
-                  ].map((skill, idx) => (
-                    <div
-                      key={idx}
-                      className="flex flex-col items-center justify-center backdrop-blur-md bg-white/10 border-2 border-white/20 rounded-md p-4 shadow-xl"
+                    <span
+                      className={`h-[2px] bg-white transition-all duration-300 ${
+                        activeSection === item.label ? "w-10" : "w-4 group-hover:w-6"
+                      }`}
+                    ></span>
+                    <span
+                      className={`transition-all ${
+                        activeSection === item.label ? "text-white font-semibold" : ""
+                      }`}
                     >
-                      <img
-                        src={skill.icon}
-                        alt={skill.name}
-                        className="w-10 h-10 object-contain"
-                      />
-                      <p className="text-md text-white text-center">{skill.name}</p>
+                      {item.label}
+                    </span>
+                  </li>
+                ))}
+                </ul>
+              </div>
+
+              {/* Right side - Scrollable content */}
+              <div
+                ref={scrollRef}
+                className={`w-full md:w-2/3 h-full overflow-y-auto space-y-20 pr-2 pl-4 custom-scrollbar ${
+                  isScrolling ? "scrolling" : ""
+                }`}
+              >
+                {/* Introduction Section */}
+                <section ref={introRef}>
+
+                  {/* Mobile: "ABOUT ME", Desktop: "INTRODUCTION" */}
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 mt-6 text-left md:text-left">
+                    <span className="block md:hidden text-5xl text-center w-full mb-8">ABOUT ME</span>
+                    <span className="hidden md:block">INTRODUCTION</span>
+                  </h3>
+
+                  <div className="flex flex-col sm:flex-row gap-6">
+                    {/* Image - centered on mobile using mx-auto */}
+                    <img
+                      src="/Images/alyssa2.jpg"
+                      alt="Alyssa"
+                      className="w-44 h-44 sm:w-60 sm:h-60 rounded-xl object-cover border-2 border-white/20 shadow-xl mx-auto sm:mx-0"
+                    />
+
+                    {/* Info */}
+                    <div className="space-y-2 text-white">
+                      <h4 className="text-xl font-semibold">
+                        ALYSSA BIANCA A. ESTIPONA
+                      </h4>
+                      <p className="text-lg text-[#FAEB92] font-semibold">
+                        Full-Stack Web Developer
+                      </p>
+                      <p className="text-md text-white/70 text-justify">
+                        I specialize in developing responsive, user-friendly web applications using the MERN stack, with a strong focus on both functionality and user experience. With a background in full-stack development and UI/UX design, I build scalable backend systems and craft intuitive, visually engaging interfaces guided by design thinking principles.
+                      </p>
                     </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Experience Section */}
-              <section ref={experienceRef}>
-                <h3 className="text-3xl font-bold text-white mb-6">EXPERIENCE</h3>
-
-                {/* Experience 1 */}
-                <div className="flex flex-col sm:flex-row gap-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg mb-6 p-4 shadow-xl items-center sm:items-center">
-                  {/* Logo Wrapper */}
-                  <div className="w-full sm:w-1/5 flex justify-center sm:justify-center items-center sm:items-center">
-                    <img
-                      src="/Images/quickflo.png"
-                      alt="Quickflo Forwarders, Inc. Logo"
-                      className="w-auto h-28 object-contain rounded-md"
-                    />
                   </div>
+                </section>
 
-                  {/* Company Info */}
-                  <div className="w-full sm:w-4/5">
-                    <h4 className="text-xl font-semibold text-white text-justify pr-4">
-                      QUICKFLO FORWARDERS, INC.
-                    </h4>
-                    <h1 className="text-md text-[#FAEB92] font-semibold pr-4">
-                      Technical Support Intern
-                    </h1>
-                    <p className="text-md text-white/70 mt-1 text-justify pr-4">
-                      Assisted in troubleshooting hardware and software issues, set up and configured desktops and printers, and helped with data entry in the accounting department.
-                    </p>
-                  </div>
-                </div>
 
-                {/* Experience 2 */}
-                <div className="flex flex-col sm:flex-row gap-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg mb-6 p-4 shadow-xl items-center sm:items-center">
-                  {/* Logo Wrapper */}
-                  <div className="w-full sm:w-1/5 flex align-center justify-center sm:justify-center items-center sm:items-center">
-                    <img
-                      src="/Images/cti.png"
-                      alt="Columbia Technologies, Inc. Logo"
-                      className="w-auto h-28 object-contain rounded-md"
-                    />
+                {/* Skills Section */}
+                <section ref={skillsRef}>
+                  <h3 className="text-3xl font-bold text-white mb-6">SKILLS</h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                    {[
+                      { name: "React", icon: "/Images/react.png" },
+                      { name: "Node.js", icon: "/Images/node.png" },
+                      { name: "Express", icon: "/Images/express.png" },
+                      { name: "Laravel", icon: "/Images/laravel.png" },
+                      { name: "Python", icon: "/Images/python.png" },
+                      { name: "Javascript", icon: "/Images/javascript.png" },
+                      { name: "PHP", icon: "/Images/php.png" },
+                      { name: "MySQL", icon: "/Images/mysql.png" },
+                      { name: "MongoDB", icon: "/Images/mongodb.png" },
+                      { name: "Tailwind CSS", icon: "/Images/tailwind.png" },
+                      { name: "Bootstrap", icon: "/Images/bootstrap.png" },
+                      { name: "React Bootstrap", icon: "/Images/reactbootstrap.png" },
+                      { name: "Figma", icon: "/Images/figma.png" },
+                      { name: "Canva", icon: "/Images/canva.png" },
+                      { name: "Git", icon: "/Images/git.png" },
+                    ].map((skill, idx) => (
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                        key={idx}
+                        className="flex flex-col items-center justify-center backdrop-blur-md bg-white/10 border-2 border-white/20 rounded-md p-4 shadow-xl"
+                      >
+                        <img
+                          src={skill.icon}
+                          alt={skill.name}
+                          className="w-10 h-10 object-contain"
+                        />
+                        <p className="text-md text-white text-center">{skill.name}</p>
+                      </motion.div>
+                    ))}
                   </div>
+                </section>
 
-                  {/* Company Info */}
-                  <div className="w-full sm:w-4/5">
-                    <h4 className="text-xl font-semibold text-white text-justify pr-4">
-                      Columbia Technologies, Inc.
-                    </h4>
-                    <h1 className="text-md text-[#FAEB92] font-semibold pr-4">
-                      Web Systems Development Intern
-                    </h1>
-                    <p className="text-md text-white/70 mt-1 text-justify pr-4">
-                      Developed a Requisition Approval System for internal office use, allowing employees to request office-related items through a multi-step, role-based approval workflow.
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Experience 3 */}
-                <div className="flex flex-col sm:flex-row gap-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-4 mb-6 shadow-xl items-center sm:items-center">
-                  {/* Logo Wrapper */}
-                  <div className="w-full sm:w-1/5 flex justify-center sm:justify-center items-center sm:items-center">
-                    <img
-                      src="/Images/nulogo.png"
-                      alt="National University Logo"
-                      className="w-auto h-28 object-contain rounded-md"
-                    />
-                  </div>
+                {/* Experience Section */}
+                <section ref={experienceRef}>
+                  <h3 className="text-3xl font-bold text-white mb-6">EXPERIENCE</h3>
 
-                  {/* Company Info */}
-                  <div className="w-full sm:w-4/5">
-                    <h4 className="text-xl font-semibold text-white text-justify pr-4">
-                      NATIONAL UNIVERSITY - MALL OF ASIA
-                    </h4>
-                    <h1 className="text-md text-[#FAEB92] font-semibold pr-4">
-                      Capstone Web Developer
-                    </h1>
+                  {/* Experience 1 */}
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="flex flex-col sm:flex-row gap-6 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-lg mb-6 p-4 shadow-xl items-center sm:items-center"
+                    >
+                    {/* Logo Wrapper */}
+                    <div className="w-full sm:w-1/5 flex justify-center sm:justify-center items-center sm:items-center">
+                      <img
+                        src="/Images/quickflo.png"
+                        alt="Quickflo Forwarders, Inc. Logo"
+                        className="w-auto h-28 object-contain rounded-md"
+                      />
+                    </div>
+
+                    {/* Company Info */}
+                    <div className="w-full sm:w-4/5 relative">
+                      <h4 className="text-xl font-semibold text-white text-justify pr-4">
+                        QUICKFLO FORWARDERS, INC.
+                      </h4>
+
+                      <h1 className="text-md text-[#FAEB92] font-semibold pr-4">
+                        Technical Support Intern
+                      </h1>
+
+                      {/* Date - mobile below position, desktop absolute top-right */}
+                      <span className="text-md text-white/70 pr-4 mt-1 block sm:absolute sm:top-0 sm:right-0">
+                        Apr 2025 – Jun 2025
+                      </span>
+
+                      <p className="text-md text-white/70 mt-1 text-justify pr-4">
+                        Assisted in troubleshooting hardware and software issues, set up and configured desktops and printers, and helped with data entry in the accounting department.
+                      </p>
+                    </div>
+                   </motion.div>
+
+                  {/* Experience 2 */}
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="flex flex-col sm:flex-row gap-6 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-lg mb-6 p-4 shadow-xl items-center sm:items-center"
+                  >
+                    {/* Logo Wrapper */}
+                    <div className="w-full sm:w-1/5 flex align-center justify-center sm:justify-center items-center sm:items-center">
+                      <img
+                        src="/Images/cti.png"
+                        alt="Columbia Technologies, Inc. Logo"
+                        className="w-auto h-28 object-contain rounded-md"
+                      />
+                    </div>
+
+                    {/* Company Info */}
+                    <div className="w-full sm:w-4/5 relative">
+                      <h4 className="text-xl font-semibold text-white text-justify pr-4">
+                        Columbia Technologies, Inc.
+                      </h4>
+
+                      <h1 className="text-md text-[#FAEB92] font-semibold pr-4">
+                        Web Systems Development Intern
+                      </h1>
+
+                      {/* Date - mobile below position, desktop absolute top-right */}
+                      <span className="text-md text-white/70 pr-4 mt-1 block sm:absolute sm:top-0 sm:right-0">
+                        Jan 2025 – Apr 2025
+                      </span>
+
+                      <p className="text-md text-white/70 mt-1 text-justify pr-4">
+                        Developed a Requisition Approval System for internal office use, allowing employees to request office-related items through a multi-step, role-based approval workflow.
+                      </p>
+                    </div>
+
+                  </motion.div>
+                  
+                  {/* Experience 3 */}
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="flex flex-col sm:flex-row gap-6 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-lg mb-6 p-4 shadow-xl items-center sm:items-center"
+                  >
+                    {/* Logo Wrapper */}
+                    <div className="w-full sm:w-1/5 flex justify-center sm:justify-center items-center sm:items-center">
+                      <img
+                        src="/Images/nulogo.png"
+                        alt="National University Logo"
+                        className="w-auto h-28 object-contain rounded-md"
+                      />
+                    </div>
+
+                    {/* Company Info */}
+                    <div className="w-full sm:w-4/5 relative">
+                      <h4 className="text-xl font-semibold text-white text-justify pr-4">
+                        NATIONAL UNIVERSITY - MALL OF ASIA
+                      </h4>
+
+                      <h1 className="text-md text-[#FAEB92] font-semibold pr-4">
+                        Capstone Web Developer
+                      </h1>
+
+                      {/* Date - mobile below position, desktop absolute top-right */}
+                      <span className="text-md text-white/70 pr-4 mt-1 block sm:absolute sm:top-0 sm:right-0">
+                        Mar 2025 – May 2025
+                      </span>
+
                       <p className="text-md text-white/70 mt-1 text-justify pr-4">
                         Served as the web developer for the capstone project titled <span className="italic">“E-Pet Adopt: A Mobile and Web Application of Pet Services Management System for Pasay Animal Shelter.”</span> Also assisted in preparing the project's documentation and contributed to the development of the mobile application.
                       </p>
-                  </div>
-                </div>
-              </section>
+                    </div>
+                  </motion.div>
+                </section>
 
-              {/* Education Section */}
-              <section ref={educationRef}>
-                <h3 className="text-3xl font-bold text-white mb-4">EDUCATION</h3>
+                {/* Education Section */}
+                <section ref={educationRef}>
+                  <h3 className="text-3xl font-bold text-white mb-4">EDUCATION</h3>
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="flex flex-col sm:flex-row gap-6 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-lg p-4 shadow-xl items-center sm:items-center"
+                    >
+                      {/* Logo Wrapper */}
+                      <div className="w-full sm:w-1/5 flex justify-center sm:justify-center items-center sm:items-center">
+                        <img
+                          src="/Images/nulogo.png"
+                          alt="National University Logo"
+                          className="w-auto h-28 object-contain rounded-md"
+                        />
+                      </div>
 
-                <div className="flex flex-col sm:flex-row gap-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-4 shadow-xl items-center sm:items-center">
-                  {/* Logo Wrapper */}
-                  <div className="w-full sm:w-1/5 flex justify-center sm:justify-center items-center sm:items-center">
-                    <img
-                      src="/Images/nulogo.png"
-                      alt="National University Logo"
-                      className="w-auto h-28 object-contain rounded-md"
-                    />
-                  </div>
+                      {/* Info */}
+                      <div className="w-full sm:w-4/5 relative">
+                        <h4 className="text-xl font-semibold text-white pr-4">
+                          National University - Mall of Asia
+                        </h4>
 
-                  {/* Info */}
-                  <div className="w-full sm:w-4/5">
-                    <h4 className="text-xl font-semibold text-white pr-4">
-                      National University - Mall of Asia
-                    </h4>
-                    <h1 className="text-md text-[#FAEB92] font-semibold text-justify pr-4">
-                      Bachelor of Science in Information Technology with Specialization in Mobile and Web Applications
-                    </h1>
-                    <p className="text-md text-white/70 mt-1 text-justify pr-4">
-                      Graduated as <span className="italic">magna cum laude</span> with a GWA of 3.57/4.00. Served as the web developer for the capstone project <span className="italic">“E-Pet Adopt: A Mobile and Web Application of Pet Services Management System for Pasay Animal Shelter”</span>.
-                    </p>
-                  </div>
-                </div>
+                        <h1 className="text-md text-[#FAEB92] font-semibold text-justify pr-4">
+                          Bachelor of Science in Information Technology with Specialization in Mobile and Web Applications
+                        </h1>
 
-                  <div className="h-[32rem]"></div>
-              </section>
+                        {/* Date */}
+                        <span className="text-md text-white/70 pr-4 mt-1 block sm:absolute sm:top-0 sm:right-0">
+                          2021-2025
+                        </span>
 
+                        <p className="text-md text-white/70 mt-1 text-justify pr-4">
+                          Graduated as <span className="italic">magna cum laude</span> with a GWA of 3.57/4.00. Served as the web developer for the capstone project <span className="italic">“E-Pet Adopt: A Mobile and Web Application of Pet Services Management System for Pasay Animal Shelter”</span>.
+                        </p>
+                      </div>
+                    </motion.div>
 
+                    <div className="h-[32rem]"></div>
+                </section>
 
+              </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
+      
     </div>
+
   );
 };
 
