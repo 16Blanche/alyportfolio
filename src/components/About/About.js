@@ -155,7 +155,7 @@ const [activeSection, setActiveSection] = useState("INTRODUCTION");
                   <div className="flex flex-col sm:flex-row gap-6">
                     {/* Image - centered on mobile using mx-auto */}
                     <img
-                      src="/Images/alyssa2.jpg"
+                      src="images/alyssa2.jpg"
                       alt="Alyssa"
                       className="w-44 h-44 sm:w-60 sm:h-60 rounded-xl object-cover border-2 border-white/20 shadow-xl mx-auto sm:mx-0"
                     />
@@ -181,21 +181,21 @@ const [activeSection, setActiveSection] = useState("INTRODUCTION");
                   <h3 className="text-3xl font-bold text-white mb-6">SKILLS</h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
                     {[
-                      { name: "React", icon: "/Images/react.png" },
-                      { name: "Node.js", icon: "/Images/node.png" },
-                      { name: "Express", icon: "/Images/express.png" },
-                      { name: "Laravel", icon: "/Images/laravel.png" },
-                      { name: "Python", icon: "/Images/python.png" },
-                      { name: "Javascript", icon: "/Images/javascript.png" },
-                      { name: "PHP", icon: "/Images/php.png" },
-                      { name: "MySQL", icon: "/Images/mysql.png" },
-                      { name: "MongoDB", icon: "/Images/mongodb.png" },
-                      { name: "Tailwind CSS", icon: "/Images/tailwind.png" },
-                      { name: "Bootstrap", icon: "/Images/bootstrap.png" },
-                      { name: "React Bootstrap", icon: "/Images/reactbootstrap.png" },
-                      { name: "Figma", icon: "/Images/figma.png" },
-                      { name: "Canva", icon: "/Images/canva.png" },
-                      { name: "Git", icon: "/Images/git.png" },
+                      { name: "React", icon: "images/react.png" },
+                      { name: "Node.js", icon: "images/node.png" },
+                      { name: "Express", icon: "images/express.png" },
+                      { name: "Laravel", icon: "images/laravel.png" },
+                      { name: "Python", icon: "images/python.png" },
+                      { name: "Javascript", icon: "images/javascript.png" },
+                      { name: "PHP", icon: "images/php.png" },
+                      { name: "MySQL", icon: "images/mysql.png" },
+                      { name: "MongoDB", icon: "images/mongodb.png" },
+                      { name: "Tailwind CSS", icon: "images/tailwind.png" },
+                      { name: "Bootstrap", icon: "images/bootstrap.png" },
+                      { name: "React Bootstrap", icon: "images/reactbootstrap.png" },
+                      { name: "Figma", icon: "images/figma.png" },
+                      { name: "Canva", icon: "images/canva.png" },
+                      { name: "Git", icon: "images/git.png" },
                     ].map((skill, idx) => (
                       <motion.div
                         whileHover={{ scale: 1.05 }}
@@ -227,7 +227,7 @@ const [activeSection, setActiveSection] = useState("INTRODUCTION");
                     {/* Logo Wrapper */}
                     <div className="w-full sm:w-1/5 flex justify-center sm:justify-center items-center sm:items-center">
                       <img
-                        src="/Images/quickflo.png"
+                        src="images/quickflo.png"
                         alt="Quickflo Forwarders, Inc. Logo"
                         className="w-auto h-28 object-contain rounded-md"
                       />
@@ -263,7 +263,7 @@ const [activeSection, setActiveSection] = useState("INTRODUCTION");
                     {/* Logo Wrapper */}
                     <div className="w-full sm:w-1/5 flex align-center justify-center sm:justify-center items-center sm:items-center">
                       <img
-                        src="/Images/cti.png"
+                        src="images/cti.png"
                         alt="Columbia Technologies, Inc. Logo"
                         className="w-auto h-28 object-contain rounded-md"
                       />
@@ -300,7 +300,7 @@ const [activeSection, setActiveSection] = useState("INTRODUCTION");
                     {/* Logo Wrapper */}
                     <div className="w-full sm:w-1/5 flex justify-center sm:justify-center items-center sm:items-center">
                       <img
-                        src="/Images/nulogo.png"
+                        src="images/nulogo.png"
                         alt="National University Logo"
                         className="w-auto h-28 object-contain rounded-md"
                       />
@@ -339,7 +339,7 @@ const [activeSection, setActiveSection] = useState("INTRODUCTION");
                       {/* Logo Wrapper */}
                       <div className="w-full sm:w-1/5 flex justify-center sm:justify-center items-center sm:items-center">
                         <img
-                          src="/Images/nulogo.png"
+                          src="images/nulogo.png"
                           alt="National University Logo"
                           className="w-auto h-28 object-contain rounded-md"
                         />
