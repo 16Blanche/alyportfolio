@@ -186,7 +186,8 @@ useEffect(() => {
               <div className="fixed inset-0 z-20 bg-black/80 flex items-center justify-center px-4">
                 <div
                   className="bg-white/10 backdrop-blur-lg text-white rounded-xl p-6 
-                  w-full max-w-[50rem] sm:max-w-[53.125rem] lg:max-w-[56.25rem] overflow-auto relative border-2 border-white/20"
+                  w-full max-w-[50rem] sm:max-w-[53.125rem] lg:max-w-[56.25rem] 
+                  max-h-[90vh] overflow-y-auto relative border-2 border-white/20"
                 >
                   <button
                     className="absolute top-1 right-1 text-2xl"
