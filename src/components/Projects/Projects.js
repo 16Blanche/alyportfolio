@@ -14,7 +14,12 @@ const sampleProjects = [
     type: "Website",
     technologies: ["React", "Tailwind", "EmailJS"],
     description: "A personal portfolio website designed to showcase development projects, highlight technical skills, and provide contact information for potential collaborations or job opportunities.",
-    images: ["images/portfolio1.png", "images/portfolio2.png", "images/portfolio4.png", "images/portfolio3.png"],
+    images: [
+      `${process.env.PUBLIC_URL}/images/portfolio1.png`,
+      `${process.env.PUBLIC_URL}/images/portfolio2.png`,
+      `${process.env.PUBLIC_URL}/images/portfolio4.png`,
+      `${process.env.PUBLIC_URL}/images/portfolio3.png`
+    ],
   },
   {
     id: 2,
@@ -22,7 +27,7 @@ const sampleProjects = [
     type: "Website",
     technologies: ["React", "Laravel","Tailwind", "MySQL", "Nodemailer"],
     description: "A Requisition Approval System designed for internal office use, allowing employees to request office-related items through a multi-step, role-based approval workflow. This project is confidential and is owned by Columbia Technologies, Inc.",
-    images: ["images/rsapp1.png"],
+    images: [`${process.env.PUBLIC_URL}/images/rsapp1.png`],
   },
     {
     id: 3,
@@ -30,7 +35,18 @@ const sampleProjects = [
     type: "Website",
     technologies: ["MERN", "CSS3", "React Bootstrap", "Nodemailer"],
     description: "A Pet Services Management System developed as a capstone project to support shelter operations, including pet and adoption management, barangay animal record tracking, and posting of animal related events. The system also features a map of nearby pet services within Pasay City and a built-in messaging platform for communication between adopters and the shelter. A system demo is available upon request.",
-    images: ["images/epetadopt1.png", "images/epetadopt2.png", "images/epetadopt3.png", "images/epetadopt4.png", "images/epetadopt5.png", "images/epetadopt6.png", "images/epetadopt7.png", "images/epetadopt8.png", "images/epetadopt9.png", "images/epetadopt10.png",],
+    images: [
+      `${process.env.PUBLIC_URL}/images/epetadopt1.png`,
+      `${process.env.PUBLIC_URL}/images/epetadopt2.png`,
+      `${process.env.PUBLIC_URL}/images/epetadopt3.png`,
+      `${process.env.PUBLIC_URL}/images/epetadopt4.png`,
+      `${process.env.PUBLIC_URL}/images/epetadopt5.png`,
+      `${process.env.PUBLIC_URL}/images/epetadopt6.png`,
+      `${process.env.PUBLIC_URL}/images/epetadopt7.png`,
+      `${process.env.PUBLIC_URL}/images/epetadopt8.png`,
+      `${process.env.PUBLIC_URL}/images/epetadopt9.png`,
+      `${process.env.PUBLIC_URL}/images/epetadopt10.png`,
+    ],
   },
 ];
 

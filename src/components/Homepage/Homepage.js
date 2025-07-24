@@ -59,7 +59,7 @@ const HomePage = () => {
             {/* IMAGE */}
             <div className="w-full md:w-1/2 flex justify-center md:order-2">
               <img
-                src="/images/alyssa2.jpg"
+                src={`${process.env.PUBLIC_URL}/images/alyssa2.jpg`}
                 alt="Alyssa Bianca"
                 className="w-52 h-52 sm:w-64 sm:h-64 md:w-[28rem] md:h-[28rem] rounded-full object-cover border-2 border-white/30 shadow-2xl"
               />
