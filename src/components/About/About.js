@@ -319,7 +319,7 @@ const [activeSection, setActiveSection] = useState("INTRODUCTION");
 
                       {/* Date - mobile below position, desktop absolute top-right */}
                       <span className="text-md text-white/70 pr-4 mt-1 block sm:absolute sm:top-0 sm:right-0">
-                        Mar 2025 – May 2025
+                        Sep 2025 – Apr 2025
                       </span>
 
                       <p className="text-md text-white/70 mt-1 text-justify pr-4">
